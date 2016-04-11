@@ -19,7 +19,7 @@ public class OntologyExample {
 
         // Create an empty in-memory ontology model
         OntDocumentManager mgr = new OntDocumentManager();
-        OntModelSpec s = new OntModelSpec( OntModelSpec.RDFS_MEM );
+        OntModelSpec s = new OntModelSpec( OntModelSpec.OWL_MEM_RULE_INF);
         s.setDocumentManager( mgr );
         OntModel m = ModelFactory.createOntologyModel( s, null );
 
