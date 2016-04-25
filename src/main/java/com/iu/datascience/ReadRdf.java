@@ -9,7 +9,7 @@ import java.io.InputStream;
 
 public class ReadRdf {
 
-    static final String inputFileName  = "RdfExample";
+    static final String inputFileName  = "Resturant.rdf";
 
     public static void main (String args[]) {
         // create an empty model
@@ -24,6 +24,6 @@ public class ReadRdf {
         model.read(in, "");
 
         // write it to standard out
-        model.write(System.out);
+        model.write(System.out, "N-TRIPLE");
     }
 }

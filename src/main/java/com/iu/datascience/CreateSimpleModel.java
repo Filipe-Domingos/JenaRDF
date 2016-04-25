@@ -10,22 +10,11 @@ import org.apache.jena.vocabulary.VCARD;
 
 public class CreateSimpleModel {
 
-    static String personURI    = "http://somewhere/JohnSmith";
-    static String fullName     = "John Smith";
+    static String student    = "http://somename/JohnSmith";
+    static String teacher    = "http://somename/Andre";
+    static String subject    = "http://somename/DS";
 
     public static void main(String[] args) {
-
-        // create an empty Model
-        Model model = ModelFactory.createDefaultModel();
-
-        // create the resource
-        Resource johnSmith = model.createResource(personURI);
-
-        // add the property
-        johnSmith.addProperty(VCARD.FN, fullName);
-        johnSmith.addProperty(RDF.first, fullName);
-
-        model.write(System.out);
 
     }
 }

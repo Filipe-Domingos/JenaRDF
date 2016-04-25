@@ -2,8 +2,7 @@ package com.iu.datascience.sparql;
 
 
 import org.apache.jena.query.*;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.*;
 
 public class SparqlQueries {
 
@@ -53,8 +52,20 @@ public class SparqlQueries {
         QueryExecution qe = QueryExecutionFactory.create(query, model);
         ResultSet results = qe.execSelect();
 
+        //ResultSetFormatter.out(System.out, results, query);
+
+        for (; results.hasNext() ; ) {
+            QuerySolution soln = results.nextSolution() ;
+            RDFNode x = soln.get("family") ;       // Get a result variable by name.
+            Resource r = soln.getResource("family") ; // Get a result variable - must be a resource
+            Literal l = soln.getLiteral("family") ;   // Get a result variable - must be a literal
+
+            System.out.println(x);
+            System.out.println(r);
+            System.out.println(l);
+        }
         // Output query results
-        ResultSetFormatter.out(System.out, results, query);
+
 
         // Important - free up resources used running the query
         qe.close();
